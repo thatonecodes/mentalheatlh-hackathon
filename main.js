@@ -1,9 +1,10 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
+import javascriptLogo from '/javascript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from '.public/counter.js'
+import { setupCounter } from './counter.js'
+import { generateMentalHealthTip } from "./mentalhealth.js"
 
-document.querySelector('#app').innerHTML = `
+const otherDiv = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
@@ -13,7 +14,8 @@ document.querySelector('#app').innerHTML = `
     </a>
     <h1>Hello Vite!</h1>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <button id="counter" type="button">
+      </button>
     </div>
     <p class="read-the-docs">
       Click on the Vite logo to learn more
@@ -21,4 +23,8 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
+document.querySelector('#app').innerHTML = otherDiv;
+
+
+console.log(generateMentalHealthTip());
 setupCounter(document.querySelector('#counter'))

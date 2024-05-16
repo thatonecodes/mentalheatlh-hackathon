@@ -12,31 +12,10 @@ const mentalHealthTips = [
     "Engage in activities you enjoy regularly."
 ];
 
-function generateMentalHealthTip() {
+export function generateMentalHealthTip() {
     /**
      * Function to generate a random mental health tip.
      */
     return mentalHealthTips[Math.floor(Math.random() * mentalHealthTips.length)];
-}
-
-function main() {
-    /**
-     * Main function to display random mental health tips.
-     */
-    console.log("Welcome to the Mental Health Tip Generator!");
-
-    while (true) {
-        prompt("Press Enter to get a random tip or 'q' to quit: ");
-
-        const tip = generateMentalHealthTip();
-        console.log("\nRandom Mental Health Tip:");
-        console.log(tip);
-
-        const user_input = prompt("\nWould you like another tip? (yes/no): ").toLowerCase();
-        if (user_input !== 'yes') {
-            console.log("Thank you for using the Mental Health Tip Generator!");
-            break;
-        }
-    }
 }
 
