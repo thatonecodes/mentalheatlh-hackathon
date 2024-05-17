@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --bg-color: #242424;
+  --secondary-color: #4b4a54;
+  --third-color: #677381;
 }
 
 a {
@@ -56,6 +59,16 @@ h1 {
   filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
+.container-cards{
+  display: flex;
+  flex-direction: row;
+}
+
+.card{
+  background-color: var(--secondary-color);
+  padding: 2em;
+}
+
 header {
   padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -97,9 +110,6 @@ header {
   }
 }
 
-.card {
-  padding: 2em;
-}
 
 .read-the-docs {
   color: #888;
