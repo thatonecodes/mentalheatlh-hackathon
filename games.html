@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title></title>
+    <title>Mental Health Games</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="" rel="stylesheet">
+     <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.12.2/brython.min.js">
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.12.2/brython_stdlib.js">
+    </script>   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/style.css" rel="stylesheet">
   </head>
   <body>
-  
+    <main>
+      <div class="main-content">
+        <div class="game-div">
+          <script type="text/python">
+            print("hello")
+          </script>
+        </div>
+        <div class="game-div">
+          <div class="container">
+              <div id="question" class="question"></div>
+              <div id="radio-buttons" class="radio-buttons"></div>
+              <button id="next-button" class="btn" onclick="next_question()">Next</button>
+          </div>
+          <script src="/brython-scripts/questionnaire.py" type="text/python"></script>
+        </div>
+        <div class="game-div">
+          <script type="text/python"></script>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
