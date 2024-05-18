@@ -14,6 +14,7 @@
   --bg-color: #242424;
   --secondary-color: #4b4a54;
   --third-color: #677381;
+  --constrast-color-dark: #646cff;
 }
 
 a {
@@ -67,6 +68,20 @@ h1 {
 .card{
   background-color: var(--secondary-color);
   padding: 2em;
+}
+
+.article-container{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.article-img{
+  height: auto;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.article-title{
+  font-size: 1em;
 }
 
 header {
@@ -127,11 +142,16 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  /* #646cff;*/
+  border-color: var(--constrast-color-dark);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+button:active{
+  background-color: var(--constrast-color-dark);
+  opacity: 0.7;
 }
 
 @media (prefers-color-scheme: light) {
