@@ -2,12 +2,15 @@ import './style.css'
 import { generateMentalHealthTip } from "./mentalhealth.js"
 
 
+
 //add interscectionobserver for main page
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach((entry) => {
       console.log(entry);
-      entry.target.classList.toggle("show", entry.isIntersecting);
+      if (!entry.target.classList.contains("show")){
+        entry.target.classList.toggle("show", entry.isIntersecting);
+      }
     });
   },
 );
@@ -15,6 +18,33 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".card").forEach((element) => {
   observer.observe(element);
 });
+
+function showAlert(mainElement){
+  const alertDiv = document.createElement('div');
+  alertDiv.id = 'custom-alert';
+  alertDiv.className = 'alert';
+  alertDiv.style.textAlign = "center";
+  // Create close button
+  const closeBtn = document.createElement('span');
+  closeBtn.style.padding = "5px";
+  closeBtn.className = 'close-btn';
+  const closeIcon = document.createElement("i");
+  closeIcon.className = "fa-solid fa-x";  
+  //appending icon to close btn
+  closeBtn.appendChild(closeIcon);
+  closeBtn.onclick = function() {
+    alertDiv.style.display = 'none';
+  };
+
+  closeBtn.style.marginLeft = "1em";
+  
+  alertDiv.innerHTML = "Worried about yourself or someone you know? Call or text <strong>9-8-8</strong>, toll-free, anytime, for support.";
+  alertDiv.style.background = "#98002f";
+  alertDiv.style.padding = "1em";
+  alertDiv.appendChild(closeBtn);
+  mainElement.insertBefore(alertDiv, document.querySelector("main"));
+}
+
 
 //function to create article elements when fetching news api
 function createArticleElement(article){
@@ -85,6 +115,8 @@ function createNewsElements(apiUrl){
         // make a next back div
         const nextBackDiv = document.createElement("div");
         nextBackDiv.append(backPageBtn, nextPageBtn);
+        nextBackDiv.style.display = "flex";
+        nextBackDiv.style.justifyContent = "center";
         // Initial button states
         backPageBtn.style.opacity = 0.5;
         if (preferredAmount >= data.articles.length) {
@@ -133,8 +165,22 @@ function createNewsElements(apiUrl){
       })
     .catch((err) => {
       console.error(err);
-
     });
 }
 
+function alternateImages(){
+  const mainImage = document.querySelector(".hero-img").querySelector("img");
+  const srcArray = ["https://cmha.ca/wp-content/uploads/2024/03/BB-Web-Carousel-1.png", 
+    "https://cmha.ca/wp-content/uploads/2022/05/cmha-slider-donate-1.jpg", 
+  "https://cmha.ca/wp-content/uploads/2022/07/cmha-slider-nmt-en-1216x520.UPDATED-1.png",
+  "https://cmha.ca/wp-content/uploads/2024/05/The-Limits-of-Compassion-FeatImg.png"]
+  setInterval(() => {
+    mainImage.src = srcArray[Math.floor(Math.random() * srcArray.length)];
+  }, 5000);
+}
+alternateImages();
 console.log(generateMentalHealthTip());
+//shows alert at top of body
+showAlert(document.body);
+
+

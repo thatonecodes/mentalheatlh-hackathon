@@ -106,11 +106,20 @@ h1 {
 .card-title{
   text-align: center;
 }
-
+.news-container{
+  margin: 3em;
+}
 .article-container{
   display: flex;
   align-items: center;
   flex-direction: row;
+  background-color: var(--secondary-color);
+  margin: 1em;
+  padding: 1em;
+  border-radius: 15px;
+}
+.article-titdescontainer{
+  margin-left: 1em;
 }
 .article-img{
   height: auto;
@@ -132,6 +141,25 @@ header {
   list-style: none;
 }
 
+.footer-list{
+  display: flex;
+  list-style: none;
+  gap: 1em;
+  align-items: center;
+}
+.privacy-container{
+  margin-left: 3em;
+}
+.privacy-container div {
+  font-size: 10px;
+}
+.logo-container{
+  width: 10%;
+}
+.logo-container img{
+  max-width: 100%;
+  height: auto;
+}
 .hero-container{
   display: flex;
   align-items: center;
@@ -175,15 +203,14 @@ header {
   margin-right: 20px;
 }
 
-.navbar li a {
-  text-decoration: none;
-  color: #007bff; /* Bootstrap primary color */
+.navbar li a { 
+/*   color: #007bff; /* Bootstrap primary color */ 
   font-weight: bold;
 }
-
-.navbar li a:hover {
-  text-decoration: underline;
-}
+/**/
+/* .navbar li a:hover { */
+/*   text-decoration: underline; */
+/* }
 
 /* Make the navbar responsive */
 @media (max-width: 768px) {
