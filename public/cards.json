@@ -1,0 +1,38 @@
+[
+    {
+        "image": "http://localhost:3000/images/card_1.jpg",
+        "name": "chili"
+    },
+    {
+        "image": "http://localhost:3000/images/card_2.jpg",
+        "name": "grapes"
+    },
+    {
+        "image": "http://localhost:3000/images/card_3.jpg",
+        "name": "lemon"
+    },
+    {
+        "image": "http://localhost:3000/images/card_4.jpg",
+        "name": "orange"
+    },
+    {
+        "image": "http://localhost:3000/images/card_5.jpg",
+        "name": "pineapple"
+    },
+    {
+        "image": "http://localhost:3000/images/card_6.jpg",
+        "name": "strawberry"
+    },
+    {
+        "image": "http://localhost:3000/images/card_7.jpg",
+        "name": "tomato"
+    },
+    {
+        "image": "http://localhost:3000/images/card_8.jpg",
+        "name": "watermelon"
+    },
+    {
+        "image": "http://localhost:3000/images/card_8.jpg",
+        "name": "cherries"
+    }
+]

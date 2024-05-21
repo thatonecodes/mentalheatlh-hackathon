@@ -1,6 +1,8 @@
 // get express module
 const express = require("express");
 require('dotenv').config(); // Load .env file
+const fs = require("fs");
+const path = require("path");
 const rateLimit = require("express-rate-limit"); // Import rate limiting middleware
 const cors = require('cors');
 const { apiKey, port } = require("./config"); //load env variables
@@ -14,6 +16,7 @@ const corsOptions = {
 // Middleware
 function errorHandler(err, req, res, next) {
   console.error("Error Caught:", err.stack);
+  console.error(err);
   res.status(500).json({ error: 'Internal Server Error' });
 }
 
@@ -62,7 +65,35 @@ app.get('/api/news', cors(corsOptions), async (req, res, next) => {
   }
 });
 
+app.use('/images', express.static(path.join(__dirname, 'public/assets')));
 
+app.get('/api/memorymatch', cors(corsOptions), async (req, res, next) => {
+    const filePath = path.join(__dirname, 'public/cards.json');
+    console.log(filePath);
+    // Check if the file exists
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            // File does not exist
+            return next({ status: 404, message: 'File not found' });
+        }
+
+        // Read the file and send its content
+        fs.readFile(filePath, 'utf8', (err, data) => {
+            if (err) {
+                // Error reading the file
+                return next({ status: 500, message: 'Error reading file' });
+            }
+
+            // Send the file content as JSON
+            try {
+                const jsonData = JSON.parse(data);
+                res.json(jsonData);
+            } catch (parseErr) {
+                next({ status: 500, message: 'Error parsing JSON' });
+            }
+        });
+    });
+});
 // Apply the rate limiting middleware to API routes only
 app.use('/api/', apiLimiter);
 // Add the error handler as middleware

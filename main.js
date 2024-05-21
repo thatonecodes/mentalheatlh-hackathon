@@ -1,4 +1,3 @@
-import './style.css'
 import { generateMentalHealthTip } from "./mentalhealth.js"
 
 
@@ -7,7 +6,6 @@ import { generateMentalHealthTip } from "./mentalhealth.js"
 const observer = new IntersectionObserver(
   entries => {
     entries.forEach((entry) => {
-      console.log(entry);
       if (!entry.target.classList.contains("show")){
         entry.target.classList.toggle("show", entry.isIntersecting);
       }
@@ -18,6 +16,10 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".card").forEach((element) => {
   observer.observe(element);
 });
+//observe other dom elements
+observer.observe(document.querySelector(".support-container"));
+observer.observe(document.querySelector(".newsletter-container"));
+
 
 function showAlert(mainElement){
   const alertDiv = document.createElement('div');
@@ -38,7 +40,7 @@ function showAlert(mainElement){
 
   closeBtn.style.marginLeft = "1em";
   
-  alertDiv.innerHTML = "Worried about yourself or someone you know? Call or text <strong>9-8-8</strong>, toll-free, anytime, for support.";
+  alertDiv.innerHTML = "⚠️ Worried about yourself or someone you know? Call or text <strong>9-8-8</strong>, toll-free, anytime, for support.";
   alertDiv.style.background = "#98002f";
   alertDiv.style.padding = "1em";
   alertDiv.appendChild(closeBtn);
@@ -50,6 +52,7 @@ function showAlert(mainElement){
 function createArticleElement(article){
   const createdDiv = document.createElement("div");
   createdDiv.classList.add("article-container");
+  observer.observe(createdDiv);
   //make the element for article description
   const descElement = document.createElement("p");
   descElement.textContent = article.description;
@@ -168,19 +171,38 @@ function createNewsElements(apiUrl){
     });
 }
 
-function alternateImages(){
+function alternateImages() {
   const mainImage = document.querySelector(".hero-img").querySelector("img");
-  const srcArray = ["https://cmha.ca/wp-content/uploads/2024/03/BB-Web-Carousel-1.png", 
-    "https://cmha.ca/wp-content/uploads/2022/05/cmha-slider-donate-1.jpg", 
-  "https://cmha.ca/wp-content/uploads/2022/07/cmha-slider-nmt-en-1216x520.UPDATED-1.png",
-  "https://cmha.ca/wp-content/uploads/2024/05/The-Limits-of-Compassion-FeatImg.png"]
+  const originalSrc = mainImage.src;
+  let indexOfLastImage = 0;
+  const srcArray = [
+    "https://cmha.ca/wp-content/uploads/2024/05/Self-Compassion-Feat-Img.png",
+    "https://cmha.ca/wp-content/uploads/2024/05/Compassion-Fatigue.png",
+    originalSrc
+  ];
+  
   setInterval(() => {
-    mainImage.src = srcArray[Math.floor(Math.random() * srcArray.length)];
+    mainImage.classList.add("fade-out");
+    
+    setTimeout(() => {
+      if (indexOfLastImage === srcArray.length){
+        indexOfLastImage = 0;
+      }
+      mainImage.src = srcArray[indexOfLastImage];
+      mainImage.classList.remove("fade-out");
+      indexOfLastImage += 1;
+    }, 1000); // Duration should match the CSS transition duration
   }, 5000);
 }
+const formElement = document.querySelector(".newsletter-form");
+formElement.addEventListener("submit", (event) => {
+  console.log("email:", event.target.value);
+  event.preventDefault();
+  formElement.reset();
+});
+
 alternateImages();
 console.log(generateMentalHealthTip());
 //shows alert at top of body
 showAlert(document.body);
-
 

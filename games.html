@@ -8,29 +8,42 @@
     </script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/brython@3.12.2/brython_stdlib.js">
-    </script>   <meta name="viewport" content="width=device-width, initial-scale=1">
+    </script>   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/style.css" rel="stylesheet">
+    <link href="/games.css" rel="stylesheet">
+    <style>
+    </style>
   </head>
   <body>
     <main>
       <div class="main-content">
-        <div class="game-div">
-          <script type="text/python">
-            print("hello")
-          </script>
+        <div class="main-title">
+          <h1>Mental Health Games</h1>
         </div>
-        <div class="game-div">
-          <div class="container">
-              <div id="question" class="question"></div>
-              <div id="radio-buttons" class="radio-buttons"></div>
-              <button id="next-button" class="btn" onclick="next_question()">Next</button>
+        <div class="game-div breathing-exercise">
+          <div class="img-div">
+            <img src="" alt="">
           </div>
-          <script src="/brython-scripts/questionnaire.py" type="text/python"></script>
+          <h2>Breathing Exercise</h2>
+          <p>Made by <italic>Anthony H.</italic></p>
         </div>
-        <div class="game-div">
-          <script type="text/python"></script>
+        <div class="game-div quiz">
+          <div class="img-div">
+            <img src="" alt="">
+          </div>
+          <h2>Mental Health Questionnaire</h2>
+          <p>Made by <italic>Ryan W.</italic></p>
+        </div>
+        <div class="game-div memorygame">
+          <div class="img-div">
+            <img src="" alt="">
+          </div>
+          <h2>Memory Game</h2>
+          <p>Made by <italic>Ryan W.</italic></p>
         </div>
       </div>
     </main>
+    <script src="/games.js" type="module"></script>
   </body>
 </html>

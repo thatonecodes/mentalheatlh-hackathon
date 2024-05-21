@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/mentalHealthLogo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Agincourt Mental Wellness</title>
     <link rel="stylesheet" href="/style.css">
     <script src="https://kit.fontawesome.com/2cc9e49d43.js" crossorigin="anonymous"></script>
   </head>
@@ -13,7 +13,7 @@
       <section id="hero-section">
         <header class="navbar-header">
           <ul class="navbar">
-            <li><img src="/mentalHealthLogo.png" alt="mental health logo" class="logo"></li>
+            <li><a href="/index.html"><img src="/mentalHealthLogo.png" alt="mental health logo" class="logo"></a></li>
             <li><a href="/utilities.html">Utilities</a></li>
             <li><a href="/info.html">Info</a></li>
             <li><a href="/games.html">Games</a></li>
@@ -80,8 +80,28 @@
       </section>
       <section id="support-push">
         <div class="support-container">
-          <h2>Your Support Matters</h2>
-          <button class="support-button">Support Us</button>
+          <div class="support-imgdiv">
+            <img src="https://smokymountainnews.s3.amazonaws.com/media/k2/items/cache/399b42027be0b005895ed0767a077426_XL.jpg?javer=2404071154" alt="donations being given out">
+          </div>
+          <div class="support-maindiv">
+            <h2>Your Support Matters</h2>
+            <button class="support-button">Support Us</button>
+          </div>
+        </div>
+      </section>
+      <section id="newsletter-sign">
+        <div class="newsletter-container">
+          <div class="newsletter-maindiv">
+            <h2>Sign up for our newsletter</h2>
+            <p>Get breaking news, updates, support and more.</p>
+            <form class="newsletter-form">
+              <input type="email" name="email" placeholder="Enter your email" required>
+              <input type="submit" value="Subscribe">
+            </form>
+          </div>
+          <div class="newsletter-imgdiv">
+            <img src="https://cmha.ca/wp-content/uploads/2021/07/pexels-suzy-hazelwood-5010877-1024x677.jpg" alt="image of newspapers">
+          </div>
         </div>
       </section>
     </main>
@@ -104,7 +124,6 @@
         </div>
       </div>
     </footer>
-    <div id="app"></div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
