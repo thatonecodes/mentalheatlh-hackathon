@@ -1,0 +1,46 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.main-contentdiv {
+  margin: 3em;
+}
+
+#contactform {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  max-width: 800px; /* Limit form width */
+}
+
+.form-container{
+  max-width: 650px;
+}
+.name-div{
+  display: flex;
+  gap: 1em;
+}
+textarea{
+  width: 100%;
+}
+
+.img-div{
+  width: 1500px;
+}
+.img-div img{
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.image-text{
+  display: flex;
+  gap: 2em;
+}
+.highlight-div{
+  margin: 0;
+}
+.name-div{
+  margin-bottom:2em;
+}

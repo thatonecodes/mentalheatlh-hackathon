@@ -7,12 +7,12 @@ context = canvas.getContext("2d")
 
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 720
-BG_IMAGE = "assets/background.jpg"
-TITLE_IMAGE = "assets/title.png"
-PLAY_IMAGE = "assets/play.png"
-TIMER_IMAGE = "assets/timer.png"
-INHALE_SOUND = "assets/inhale.mp3"
-EXHALE_SOUND = "assets/exhale.mp3"
+BG_IMAGE = "../../assets/background.jpg"
+TITLE_IMAGE = "../../assets/title.png"
+PLAY_IMAGE = "../../assets/play.png"
+TIMER_IMAGE = "../../assets/timer.png"
+INHALE_SOUND = "../../assets/inhale.mp3"
+EXHALE_SOUND = "../../assets/exhale.mp3"
 
 countdown = 180  # Default countdown for the exercise
 fps = 60
@@ -64,6 +64,7 @@ def main_menu():
         if play_button.clicked:
             if not is_animating:
                 play()
+                
         elif timer_button.clicked:
             timer_menu()
 
@@ -87,7 +88,6 @@ def play():
     inhale = html.AUDIO(src=INHALE_SOUND)
     exhale = html.AUDIO(src=EXHALE_SOUND)
     inhale.play()
-
     def animate():
         nonlocal radius, radius_change, colour, holding, hold_time, text
         context.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -145,9 +145,9 @@ def timer_menu():
     context.lineWidth = 10
     context.strokeRect(40, 40, 1200, 640)
 
-    increase_button = Button(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT // 2 - 175, "assets/increase.png", 1)
-    decrease_button = Button(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT // 2 + 75, "assets/decrease.png", 1)
-    exit_button = Button(1110, 60, "assets/x.png", 1)
+    increase_button = Button(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT // 2 - 175, "../../public/assets/increase.png", 1)
+    decrease_button = Button(SCREEN_WIDTH // 2 - 50, SCREEN_HEIGHT // 2 + 75, "../../public/assets/decrease.png", 1)
+    exit_button = Button(1110, 60, "../../public/assets/x.png", 1)
 
     def update_timer():
         global countdown
