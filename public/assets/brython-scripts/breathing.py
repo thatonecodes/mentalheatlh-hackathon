@@ -25,14 +25,17 @@ class Button:
     def __init__(self, x, y, image_path, scale):
         self.image_path = image_path
         self.image = load_image(image_path)
-        self.image.style.transform = f"scale({scale})"
-        self.image.style.position = "absolute"
-        self.image.style.left = f"{x}px"
-        self.image.style.top = f"{y}px"
-        self.width = int(self.image.width) * scale
-        self.height = int(self.image.height) * scale
+        self.scale = scale
+        self.x = x
+        self.y = y
+        self.width = self.image.width * scale
+        self.height = self.image.height * scale
         self.clicked = False
-        self.image.bind("click", self.click)
+        self.image.bind("load", self.set_dimensions)
+
+    def set_dimensions(self, event):
+        self.width = self.image.width * self.scale
+        self.height = self.image.height * self.scale
 
     def click(self, event):
         self.clicked = True
@@ -40,14 +43,15 @@ class Button:
 def load_image(path):
     if path not in image_cache:
         img = html.IMG(src=path)
-        document <= img  # Add to the document to load the image
+        img.style.display = "none"
+        img.bind("load", lambda e: img.loaded(True))
+        img.loaded = lambda: False
         image_cache[path] = img
     return image_cache[path]
 
 def draw_image(context, img, x, y, width, height):
-    img.width = width
-    img.height = height
-    context.drawImage(img, x, y, width, height)
+    if img.loaded():
+        context.drawImage(img, x, y, width, height)
 
 def main_menu():
     document["myCanvas"].clear()
@@ -88,6 +92,7 @@ def play():
     inhale = html.AUDIO(src=INHALE_SOUND)
     exhale = html.AUDIO(src=EXHALE_SOUND)
     inhale.play()
+
     def animate():
         nonlocal radius, radius_change, colour, holding, hold_time, text
         context.clearRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)

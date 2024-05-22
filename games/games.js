@@ -5,7 +5,8 @@ let mainPage = true;
 
 const breathingExerciseHtml = `
 <canvas id="myCanvas" width="1280" height="720"></canvas>
-<script src="brython-scripts/breathing.py" type="text/python"></script>
+<div class="content-main"></div>
+<script src="../assets/brython-scripts/breathing.py" type="text/python"></script>
 `;
 
 const quizInnerHtml = `
@@ -14,7 +15,7 @@ const quizInnerHtml = `
       <div id="radio-buttons" class="radio-buttons"></div>
       <button id="next-button" class="btn" onclick="next_question()">Next</button>
   </div>
-  <script src="brython-scripts/questionnaire.py" type="text/python">
+  <script src="../assets/brython-scripts/questionnaire.py" type="text/python">
   </script>
 `;
 
@@ -87,8 +88,9 @@ function listenBreathingDiv(){
     setTimeout(() => {
       const DOMImages = document.querySelectorAll("img");
       console.log(DOMImages);
+      const maintextContent = document.querySelector(".content-main");
       DOMImages.forEach((element) => {
-        mainContent.appendChild(element);
+        element.remove();
       });
     }, 800);
   });
