@@ -1,7 +1,7 @@
 [
     {
         "image": "http://localhost:3000/images/card_1.jpg",
-        "name": "chili"
+        "name": "yellow"
     },
     {
         "image": "http://localhost:3000/images/card_2.jpg",
@@ -9,30 +9,30 @@
     },
     {
         "image": "http://localhost:3000/images/card_3.jpg",
-        "name": "lemon"
+        "name": "blue"
     },
     {
         "image": "http://localhost:3000/images/card_4.jpg",
-        "name": "orange"
+        "name": "man"
     },
     {
         "image": "http://localhost:3000/images/card_5.jpg",
-        "name": "pineapple"
+        "name": "zen"
     },
     {
         "image": "http://localhost:3000/images/card_6.jpg",
-        "name": "strawberry"
+        "name": "brain"
     },
     {
         "image": "http://localhost:3000/images/card_7.jpg",
-        "name": "tomato"
+        "name": "breathing"
     },
     {
         "image": "http://localhost:3000/images/card_8.jpg",
-        "name": "watermelon"
+        "name": "computer"
     },
     {
-        "image": "http://localhost:3000/images/card_8.jpg",
-        "name": "cherries"
+        "image": "http://localhost:3000/images/card_9.jpg",
+        "name": "yolo"
     }
 ]

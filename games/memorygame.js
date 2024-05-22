@@ -1,3 +1,5 @@
+
+
 let gridContainer = null;
 let cards = [];
 let firstCard, secondCard;
@@ -62,7 +64,9 @@ function flipCard() {
   score++;
   document.querySelector(".score").textContent = score;
   lockBoard = true;
-
+  console.log("First Card: ", firstCard.dataset.name);
+  console.log("Second Card: ", secondCard.dataset.name);
+  console.log("Score: ", score);
   checkForMatch();
 }
 

@@ -5,11 +5,11 @@ const fs = require("fs");
 const path = require("path");
 const rateLimit = require("express-rate-limit"); // Import rate limiting middleware
 const cors = require('cors');
-const { apiKey, port } = require("./config"); //load env variables
+const { apiKey, port, awsUrl } = require("./config"); //load env variables
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5173', //using this for now
+  origin: awsUrl, //using this for now
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 

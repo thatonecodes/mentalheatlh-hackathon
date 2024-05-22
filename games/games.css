@@ -1,6 +1,11 @@
 h1{
   text-align: center;
 }
+
+.img-div:hover{
+  opacity: 0.7;
+  cursor: pointer;
+}
 .actions {
     display: flex;
     justify-content: center;
@@ -70,3 +75,16 @@ h1{
 .main-content{
   margin: 3em;
 }
+
+.img-div{
+  display: flex;
+  align-items: center;
+  width: 650px;
+}
+
+.img-div img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 3rem;
+}
+

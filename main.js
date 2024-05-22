@@ -1,6 +1,5 @@
 import { generateMentalHealthTip } from "./mentalhealth.js"
-
-
+import { apiUrl } from "./config.js";
 
 //add interscectionobserver for main page
 const observer = new IntersectionObserver(
@@ -13,9 +12,6 @@ const observer = new IntersectionObserver(
   },
 );
 
-document.querySelectorAll(".card").forEach((element) => {
-  observer.observe(element);
-});
 //observe other dom elements
 observer.observe(document.querySelector(".support-container"));
 observer.observe(document.querySelector(".newsletter-container"));
@@ -80,7 +76,7 @@ function createArticleElement(article){
 // get use content, use backend data to populate
 const newsContent = document.querySelector(".news-content");
 //api url goes here -------- ----------- ---------- --------
-createNewsElements("http://localhost:3000/api/news");
+createNewsElements(`${apiUrl}:3000/api/news`);
 
 function createNewsElements(apiUrl){
   const newsApiUrl = apiUrl;
