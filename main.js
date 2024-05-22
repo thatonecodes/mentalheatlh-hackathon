@@ -1,5 +1,5 @@
 import { generateMentalHealthTip } from "./mentalhealth.js"
-import { apiUrl } from "./config.js";
+const { apiUrl } = require("./config"); //load env variables
 
 //add interscectionobserver for main page
 const observer = new IntersectionObserver(
