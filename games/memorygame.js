@@ -1,5 +1,6 @@
+import frontendConfig from '../config/frontendconf.js';
 
-
+let apiUrl = frontendConfig.apiUrl;
 let gridContainer = null;
 let cards = [];
 let firstCard, secondCard;
@@ -9,7 +10,7 @@ let score = 0;
 export function main(){
   document.querySelector(".score").textContent = score;
   document.querySelector(".restart").addEventListener("click", restart);
-  const apiUrl = "http://localhost:3000/api/memorymatch";
+  apiUrl = apiUrl + "/api/memorymatch";
   gridContainer = document.querySelector(".grid-container");
   fetch(apiUrl)
     .then((res) => res.json())

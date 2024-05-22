@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const rateLimit = require("express-rate-limit"); // Import rate limiting middleware
 const cors = require('cors');
-const { apiKey, port, awsUrl } = require("./config"); //load env variables
+const { apiKey, port, awsUrl } = require("./config/config"); //load env variables
 const app = express();
 
 const corsOptions = {

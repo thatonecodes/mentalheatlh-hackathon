@@ -1,6 +1,7 @@
 import { generateMentalHealthTip } from "./mentalhealth.js"
-const { apiUrl } = require("./config"); //load env variables
+import frontendConfig from './config/frontendconf.js';
 
+const apiUrl = frontendConfig.apiUrl;
 //add interscectionobserver for main page
 const observer = new IntersectionObserver(
   entries => {
@@ -76,7 +77,7 @@ function createArticleElement(article){
 // get use content, use backend data to populate
 const newsContent = document.querySelector(".news-content");
 //api url goes here -------- ----------- ---------- --------
-createNewsElements(`${apiUrl}:3000/api/news`);
+createNewsElements(`${apiUrl}/api/news`);
 
 function createNewsElements(apiUrl){
   const newsApiUrl = apiUrl;
