@@ -4,9 +4,9 @@ import { main } from "./memorygame.js";
 let mainPage = true;
 
 const breathingExerciseHtml = `
-<canvas id="myCanvas" width="1280" height="720"></canvas>
-<div class="content-main"></div>
-<script src="../assets/brython-scripts/breathing.py" type="text/python"></script>
+<video autoplay>
+ <source src="https://cdn.discordapp.com/attachments/1224881348557144155/1242901882519945427/Screen_Recording_2024-05-22_at_2.06.42_PM.mov?ex=664f8614&is=664e3494&hm=c875d5acaefd44b472afaa6641e0667b94049107b6b0e8eb1e4e38fc59762335&" type="video/mp4"/>
+</video>
 `;
 
 const quizInnerHtml = `

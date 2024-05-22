@@ -1,0 +1,43 @@
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #0077b6;
+    border-bottom: 2px solid #0077b6;
+    padding-bottom: 0.5em;
+}
+
+.utility-links, .resource-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.utility-links a, .resource-links a {
+    background-color: #0077b6;
+    color: #fff;
+    text-decoration: none;
+    padding: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.utility-links a:hover, .resource-links a:hover {
+    background-color: #005f86;
+}
+
+footer {
+    background-color: #0077b6;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
