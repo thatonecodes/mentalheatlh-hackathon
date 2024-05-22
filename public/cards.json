@@ -1,38 +1,38 @@
 [
     {
-        "image": "http://localhost:3000/images/card_1.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_1.jpg",
         "name": "yellow"
     },
     {
-        "image": "http://localhost:3000/images/card_2.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_2.jpg",
         "name": "grapes"
     },
     {
-        "image": "http://localhost:3000/images/card_3.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_3.jpg",
         "name": "blue"
     },
     {
-        "image": "http://localhost:3000/images/card_4.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_4.jpg",
         "name": "man"
     },
     {
-        "image": "http://localhost:3000/images/card_5.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_5.jpg",
         "name": "zen"
     },
     {
-        "image": "http://localhost:3000/images/card_6.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_6.jpg",
         "name": "brain"
     },
     {
-        "image": "http://localhost:3000/images/card_7.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_7.jpg",
         "name": "breathing"
     },
     {
-        "image": "http://localhost:3000/images/card_8.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_8.jpg",
         "name": "computer"
     },
     {
-        "image": "http://localhost:3000/images/card_9.jpg",
+        "image": "https://mindawarenesstab.s3.us-east-2.amazonaws.com/images/card_9.jpg",
         "name": "yolo"
     }
 ]

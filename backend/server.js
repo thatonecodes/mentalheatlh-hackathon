@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const rateLimit = require("express-rate-limit"); // Import rate limiting middleware
 const cors = require('cors');
-const { apiKey, port, awsUrl } = require("./config/config"); //load env variables
+const { apiKey, port, awsUrl } = require("../config/config"); //load env variables
 const app = express();
 
 const corsOptions = {
@@ -45,21 +45,32 @@ app.get('/test', (req, res, next) => {
 
 app.get('/api/news', cors(corsOptions), async (req, res, next) => {
   const queries = ["mental+health", "sanity", "being+social", "mental+health+support"];
-  const randomQuery = queries[(Math.floor(Math.random() * queries.length))];
+  const randomQuery = queries[Math.floor(Math.random() * queries.length)];
   const apiUrl = `https://newsapi.org/v2/everything?q=${randomQuery}&from=2024&apiKey=${apiKey}`;
 
   try {
-    const fetch = (await import('node-fetch')).default; // Dynamic import
     const response = await fetch(apiUrl);
     if (!response.ok) {
       throw new Error('Network response was not ok ' + response.statusText);
     }
     const data = await response.json(); // Parsing the JSON data from the response
-    //add custom keyword to json
+    
+    // Add custom keyword to json
     data.keyword = randomQuery;
     console.log('User Data:', data);
+    
+    // Save the data to a file
+    fs.writeFile(`news_${randomQuery}.json`, JSON.stringify(data, null, 2), (err) => {
+      if (err) {
+        console.error('Error writing to file:', err);
+        next(err); // Pass the error to the error handler
+        return;
+      }
+      console.log('Data has been written to file');
+    });
+    
     res.send(data);
-  }catch (error) {
+  } catch (error) {
     console.error('There was a problem with the fetch operation:', error);
     next(error); // Pass the error to the error handler
   }

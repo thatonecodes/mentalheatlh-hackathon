@@ -77,7 +77,12 @@ function createArticleElement(article){
 // get use content, use backend data to populate
 const newsContent = document.querySelector(".news-content");
 //api url goes here -------- ----------- ---------- --------
-createNewsElements(`${apiUrl}/api/news`);
+const ArrOfJsonFiles = [
+  "https://mindawarenesstab.s3.us-east-2.amazonaws.com/news_being%2Bsocial.json",
+  "https://mindawarenesstab.s3.us-east-2.amazonaws.com/news_mental%2Bhealth.json",
+  "https://mindawarenesstab.s3.us-east-2.amazonaws.com/news_sanity.json"
+];
+createNewsElements(ArrOfJsonFiles[Math.floor(Math.random()*ArrOfJsonFiles.length)]);
 
 function createNewsElements(apiUrl){
   const newsApiUrl = apiUrl;

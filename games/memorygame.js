@@ -1,6 +1,3 @@
-import frontendConfig from '../config/frontendconf.js';
-
-let apiUrl = frontendConfig.apiUrl;
 let gridContainer = null;
 let cards = [];
 let firstCard, secondCard;
@@ -10,7 +7,7 @@ let score = 0;
 export function main(){
   document.querySelector(".score").textContent = score;
   document.querySelector(".restart").addEventListener("click", restart);
-  apiUrl = apiUrl + "/api/memorymatch";
+  const apiUrl = "https://mindawarenesstab.s3.us-east-2.amazonaws.com/cards.json";
   gridContainer = document.querySelector(".grid-container");
   fetch(apiUrl)
     .then((res) => res.json())
